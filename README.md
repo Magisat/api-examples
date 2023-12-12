@@ -8,15 +8,18 @@ Our snippets only use crypto-related 3rd party packages, in order to keep it at 
 - ecpair
 - tiny-secp256k1
 
-Current API version is 1.2.0 - as of 23rd Nov 2023
+Current API version is 1.3.0 - as of 11th Dec 2023
 
 Current features covered in this example
 - Listing a single UTXO
     - retrieve the PSBT from our dedicated enpoint
     - validate the PSBT on your side
-    - sign the PSBT and submit it on the listing endpoint
+    - sign the PSBT and submit it on the listing endpoint 
+- Reading a listing
+    - retrieve a listing status and other data by id
 - Deleting a listing
     - delete a listing by id
+    - bulk delete listings
 
 ### Access
 You may request an API Key [here](https://docs.google.com/forms/d/1t2ONUxBKnxn5J2I9L-6vvMjE_CGlXdj_VRjkUBjmbUE/viewform?edit_requested=true)
@@ -24,10 +27,6 @@ You may request an API Key [here](https://docs.google.com/forms/d/1t2ONUxBKnxn5J
 ### Coming up soon (examples) 
 - Preparing
 - Buying
-
-### Coming up soon (features)
-- Read listing status (1.3.0) + example
-- Bulk deletion of listings (1.3.0) + example
 
 ## Installation
 
@@ -53,7 +52,7 @@ The code will sign the psbt using a WIF-instantiated wallet. Together with the l
 node src/examples/new-listing.js
 ```
 
-### Delete a listing
+### Delete a listing (single/bulk)
 
 No need to sign here. Variables:
 - API Key
@@ -61,4 +60,18 @@ No need to sign here. Variables:
 
 ```shell
 node src/examples/delete-listing.js
+```
+
+```shell
+node src/examples/delete-bulk-listing.js
+```
+
+### Read a listing
+
+No need to sign here. Variables:
+- API Key
+- Listing ID - the one you wish to read
+
+```shell
+node src/examples/get-listing-by-id.js
 ```
